@@ -3,39 +3,33 @@
 #include <string>
 using namespace std;
 
-// Class representing a Product
+
 class Product {
 private:
     string name;
     float price;
 
 public:
-    // Constructor
     Product(string n, float p) : name(n), price(p) {}
 
-    // Getters
     string getName() const { return name; }
     float getPrice() const { return price; }
 
-    // Display product details
     void displayProduct() const {
         cout << "Product: " << name << " | Price: $" << price << endl;
     }
 };
 
-// Class representing a Shopping Cart
 class Cart {
 private:
     vector<Product> products;
 
 public:
-    // Add a product to the cart
     void addProduct(const Product& product) {
         products.push_back(product);
         cout << product.getName() << " has been added to the cart.\n";
     }
 
-    // Remove a product from the cart by name
     void removeProduct(const string& productName) {
         for (auto it = products.begin(); it != products.end(); ++it) {
             if (it->getName() == productName) {
@@ -47,7 +41,6 @@ public:
         cout << "Product not found in the cart.\n";
     }
 
-    // View all products in the cart
     void viewCart() const {
         if (products.empty()) {
             cout << "Your cart is empty.\n";
@@ -60,7 +53,6 @@ public:
         }
     }
 
-    // Calculate the total price of the cart
     float calculateTotal() const {
         float total = 0;
         for (const auto& product : products) {
@@ -70,7 +62,6 @@ public:
     }
 };
 
-// Main Function
 int main() {
     Cart cart;
     vector<Product> store = {
@@ -83,7 +74,6 @@ int main() {
 
     int choice;
     while (true) {
-        // Display menu
         cout << "\nE-commerce Cart System\n";
         cout << "1. View Store\n";
         cout << "2. Add Product to Cart\n";
